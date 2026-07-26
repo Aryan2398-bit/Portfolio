@@ -244,15 +244,11 @@ header {
   transition: background 0.4s ease;
 }
 
-/* Dark mode: photo bg */
+/* Dark mode: hero background */
 [data-theme="dark"] .hero { background: #0d0d0d; }
-[data-theme="dark"] .hero-bg { opacity: 0.72; }
-[data-theme="dark"] .hero-overlay { background: linear-gradient(200deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.62) 70%); }
 
 /* Light mode: clean off-white with subtle gradient */
 [data-theme="light"] .hero { background: #f4f6fb; }
-[data-theme="light"] .hero-bg { opacity: 0.07; filter: grayscale(60%); }
-[data-theme="light"] .hero-overlay { background: linear-gradient(200deg, rgba(244,246,251,0.1) 0%, rgba(244,246,251,0.55) 70%); }
 [data-theme="light"] .hero h1 { color: #0f1629; }
 [data-theme="light"] .hero-sub { color: #4b5563; }
 [data-theme="light"] .hero-badge { color: #374151; }
@@ -260,19 +256,6 @@ header {
 [data-theme="light"] .trust-item { border-color: #d1d5db; }
 [data-theme="light"] .btn-cta { box-shadow: 0 4px 18px rgba(0,102,255,0.3); }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85') center/cover no-repeat;
-  opacity: 0.72;
-  transition: opacity 0.4s ease, filter 0.4s ease;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(200deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.62) 70%);
-  transition: background 0.4s ease;
-}
 .hero-inner {
   position: relative;
   z-index: 1;
@@ -791,8 +774,6 @@ footer { background: var(--footer-bg); padding: 4rem var(--pad) 3rem; transition
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
   <div class="hero-inner">
 
     <!-- LEFT: Text -->
