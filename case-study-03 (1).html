@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Loan Onboarding Overhaul — Aryan Singh</title>
+<meta name="description" content="A research-led overhaul of loan application onboarding: nine drop-off moments fixed, completion up 54%."/>
+<!-- Replace https://YOUR-DOMAIN.com with your live URL once hosted (Open Graph needs absolute URLs) -->
+<link rel="canonical" href="https://YOUR-DOMAIN.com/case-study-03.html"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#0066FF"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Aryan Singh"/>
+<meta property="og:title" content="Loan Onboarding Overhaul — Aryan Singh"/>
+<meta property="og:description" content="A research-led overhaul of loan application onboarding: nine drop-off moments fixed, completion up 54%."/>
+<meta property="og:url" content="https://YOUR-DOMAIN.com/case-study-03.html"/>
+<meta property="og:image" content="https://YOUR-DOMAIN.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Aryan Singh — Product Designer, Fintech"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Loan Onboarding Overhaul — Aryan Singh"/>
+<meta name="twitter:description" content="A research-led overhaul of loan application onboarding: nine drop-off moments fixed, completion up 54%."/>
+<meta name="twitter:image" content="https://YOUR-DOMAIN.com/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Case-study content vars — LIGHT theme (default). WCAG AA on #fff. */
+  --bg:       #ffffff;
+  --bg-card:  #f4f5f7;   /* subtle grey card, not near-black */
+  --bg-card2: #eceef1;
+  --border:   #e5e7eb;
+  --border2:  #d7dae0;
+  --text:     #111827;   /* 16:1 on white — readable titles/headings */
+  --muted:    #4b5563;   /* 7.6:1 — subtle grey, high contrast */
+  --dim:      #626b7a;   /* AA on white AND grey cards, still dimmer than --muted */
+  --accent:   #0066FF;
+  --blue:     #0066FF;
+  --green:    #15803d;   /* AA on white (was #4ade80, failed) */
+  --red:      #dc2626;   /* AA on white (was #f87171, failed) */
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
+  --max: 860px;
+  --pad: 2rem;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── STICKY NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pad);
+  height: 56px;
+}
+.nav-name {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.15s;
+  font-weight: 400;
+}
+.nav-back:hover { color: var(--text); }
+.nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* ── HERO ── */
+.cs-hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem var(--pad) 4rem;
+}
+.cs-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cs-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--muted);
+}
+.cs-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+.cs-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  max-width: 580px;
+}
+.cs-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+.cs-meta-val {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* ── IMAGE BLOCK ── */
+.cs-image-full {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cs-image-full img { width: 100%; height: auto; display: block; }
+.img-placeholder {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--dim);
+  font-size: 13px;
+}
+.img-placeholder svg { opacity: 0.3; }
+
+/* ── SECTION WRAP ── */
+.cs-section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem var(--pad);
+  border-top: 1px solid var(--border);
+}
+.cs-section:first-of-type { border-top: none; }
+
+.section-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+h2.cs-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+}
+h2.cs-heading.accent { color: var(--text); }
+
+.cs-body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 640px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.cs-body + .cs-body { margin-top: 0; }
+
+/* ── INSIGHT CARD ── */
+.insight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-top: 2rem;
+}
+.insight-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.insight-card-label::before {
+  content:'';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.insight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 3rem;
+}
+.insight-grid.three { grid-template-columns: repeat(3, 1fr); }
+.insight-item h4 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.insight-item h4 strong { color: var(--text); }
+.insight-item p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── RESEARCH METHODS ── */
+.methods-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.method-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+.method-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+}
+.method-circle svg { width: 28px; height: 28px; stroke: var(--text); fill: none; stroke-width: 1.5; }
+.method-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── BULLET LIST ── */
+.cs-list {
+  margin: 1rem 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cs-list li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.cs-list li strong { color: var(--text); font-weight: 500; }
+
+/* ── IMPACT NUMBERS ── */
+.impact-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.impact-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+.impact-num {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.impact-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ── DIVIDER ── */
+.cs-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ── FULL WIDTH IMAGE SECTION ── */
+.cs-image-section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem var(--pad);
+}
+.cs-image-section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.cs-image-caption {
+  font-size: 12px;
+  color: var(--dim);
+  margin-top: 1rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ── HOW MIGHT WE ── */
+.hmw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.hmw-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+  position: relative;
+}
+.hmw-card::before {
+  content: 'HMW';
+  position: absolute;
+  left: 0.85rem;
+  top: 1.3rem;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  opacity: 0.7;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* ── DESIGN PRINCIPLES ── */
+.principles-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.principle-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.principle-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--border2);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.principle-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+.principle-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── FLOW STEPS ── */
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.flow-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  background: var(--bg-card);
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-step-num {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--dim);
+  line-height: 1;
+  padding-top: 4px;
+}
+.flow-step-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(0,102,255,0.08);
+  border: 1px solid rgba(0,102,255,0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.flow-step-content h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+.flow-step-content p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── BEFORE / AFTER ── */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.ba-col { display: flex; flex-direction: column; gap: 0.75rem; }
+.ba-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+.ba-label.before { color: var(--red); background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.18); }
+.ba-label.after  { color: var(--green); background: rgba(74,222,128,0.08);  border: 1px solid rgba(74,222,128,0.18); }
+.ba-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.ba-item strong { color: var(--text); font-weight: 500; }
+
+/* ── OUTCOME METRICS ── */
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.outcome-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.outcome-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+.outcome-delta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.outcome-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ── LEARNINGS ── */
+.learnings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.learning-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.learning-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.learning-marker svg { width: 12px; height: 12px; stroke: var(--muted); fill: none; stroke-width: 2; }
+.learning-text h4 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; line-height: 1.35; }
+.learning-text p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* ── PRIORITIZATION PYRAMID ── */
+.pyramid-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.pyramid { width: 100%; max-width: 420px; }
+
+/* ── NEXT / PREV ── */
+.cs-nav-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem var(--pad) 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.cs-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.15s;
+  font-weight: 400;
+}
+.cs-nav-btn:hover { border-color: var(--border2); color: var(--text); }
+.cs-nav-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  :root { --pad: 1.25rem; }
+  .cs-meta { grid-template-columns: 1fr 1fr; }
+  .insight-grid { grid-template-columns: 1fr; }
+  .insight-grid.three { grid-template-columns: 1fr; }
+  .methods-row { grid-template-columns: repeat(2, 1fr); }
+  .impact-row { grid-template-columns: 1fr 1fr; }
+  .hmw-grid { grid-template-columns: 1fr; }
+  .principles-row { grid-template-columns: 1fr; }
+  .before-after { grid-template-columns: 1fr; }
+  .outcome-grid { grid-template-columns: 1fr; }
+}
+
+/* ── SHARED NAV (portfolio header) ── */
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+:root {
+  --blue: #0066FF;
+  --sans: 'Inter', system-ui, sans-serif;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  --bg:             #ffffff;
+  --bg-alt:         #f9fafb;
+  --surface:        #ffffff;
+  --border:         #e5e7eb;
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --nav-bg:         rgba(255,255,255,0.95);
+  --btn-bg:         #0a0a0a;
+  --btn-text:       #ffffff;
+  --announce-bg:    #0a0a0a;
+}
+[data-theme="dark"] {
+  --bg:             #0d0d0d;
+  --bg-alt:         #161616;
+  --surface:        #1a1a1a;
+  --border:         #2a2a2a;
+  --text-primary:   #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted:     #6b7280;
+  --nav-bg:         rgba(13,13,13,0.93);
+  --btn-bg:         #f9fafb;
+  --btn-text:       #111827;
+  --announce-bg:    #111111;
+  /* Case-study content vars — DARK theme */
+  --bg-card:  #161616;
+  --bg-card2: #1c1c1c;
+  --border2:  #333333;
+  --text:     #f2f2f2;
+  --muted:    #a0a0a0;   /* 7:1 on #0d0d0d */
+  --dim:      #808080;   /* 4.9:1 on #0d0d0d (was #555555, failed) */
+  --green:    #4ade80;
+  --red:      #f87171;
+}
+[data-theme="dark"] .principle-num { color: #4a4a4a; }
+
+.announce-bar {
+  background: var(--announce-bg);
+  color: rgba(255,255,255,0.75);
+  font-size: 13px;
+  text-align: center;
+  padding: 0.6rem 3rem;
+  position: relative;
+  transition: background 0.3s;
+}
+.announce-bar a { color: #ffffff; text-decoration: underline; text-underline-offset: 3px; }
+.announce-bar.hidden { display: none; }
+.announce-close {
+  position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer;
+  font-size: 16px; line-height: 1; padding: 4px 6px; border-radius: 4px;
+  transition: color 0.15s, background 0.15s; display: flex; align-items: center;
+}
+.announce-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 3rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 18px;
+  color: var(--text-primary); font-weight: 400; font-style: normal;
+  transition: color 0.15s; text-decoration: none;
+}
+.nav-logo:hover { color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 14px; color: var(--text-secondary);
+  font-weight: 400; transition: color 0.15s; text-decoration: none;
+}
+.nav-links a:hover { color: var(--text-primary); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.nav-links a.active { color: var(--text-primary); font-weight: 500; }
+.nav-btns { display: flex; gap: 0.75rem; align-items: center; }
+.theme-toggle {
+  display: flex; align-items: center; gap: 7px; cursor: pointer;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 999px; padding: 4px 10px 4px 6px;
+  user-select: none; transition: border-color 0.2s, background 0.3s;
+}
+.theme-toggle:hover { border-color: var(--text-muted); }
+.toggle-icon-wrap {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--btn-bg); color: var(--btn-text);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; flex-shrink: 0; transition: background 0.3s, color 0.3s;
+}
+.toggle-label-text {
+  font-size: 12px; font-weight: 500; color: var(--text-secondary);
+  letter-spacing: 0.01em; transition: color 0.3s; white-space: nowrap;
+}
+.btn-primary {
+  font-size: 14px; font-weight: 500;
+  background: var(--btn-bg); color: var(--btn-text);
+  padding: 0.5rem 1.1rem; border-radius: 8px;
+  transition: opacity 0.15s, background 0.3s, color 0.3s;
+  display: inline-block; text-decoration: none;
+}
+.btn-primary:hover { opacity: 0.82; }
+</style>
+</head>
+<body>
+
+<div class="announce-bar" id="announce-bar">
+  UI/UX Designer specialising in fintech &amp; financial products &nbsp;·&nbsp;
+  <a href="index.html#contact">Open to work</a>
+  <button class="announce-close" onclick="dismissBanner()" aria-label="Dismiss">✕</button>
+</div>
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Aryan Singh</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-btns">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Switch theme">
+        <div class="toggle-icon-wrap" id="toggle-icon">🌙</div>
+        <span class="toggle-label-text" id="toggle-label">Dark</span>
+      </button>
+      <a class="btn-primary" href="resume.pdf" download>Download résumé</a>
+    </div>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- NAV -->
+
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-tag">Case study 03 · Lending</div>
+  <h1>Loan application onboarding overhaul</h1>
+  <div class="cs-meta">
+    <div>
+      <div class="cs-meta-label">My role</div>
+      <div class="cs-meta-val">Research, product design, dev handoff</div>
+    </div>
+    <div>
+      <div class="cs-meta-label">Team</div>
+      <div class="cs-meta-val">2 PMs, 4 engineers, 1 QA</div>
+    </div>
+    <div>
+      <div class="cs-meta-label">Timeline</div>
+      <div class="cs-meta-val">1 quarter (12 weeks)</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE PLACEHOLDER -->
+<div style="max-width:var(--max);margin:0 auto;padding:0 var(--pad) 4rem;">
+  <div class="cs-image-full">
+    <div class="img-placeholder">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Hero image — drop your screens here</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: OVERVIEW -->
+<section class="cs-section">
+  <div class="section-pill">Overview</div>
+  <p class="cs-body">At [Company], we offer lending products to over 5 Cr+ users across India. Our loan application onboarding flow had accumulated years of incremental changes — each reasonable in isolation, but collectively creating a fragmented, high-friction experience that was silently killing conversions.</p>
+  <p class="cs-body">We set out to redesign the onboarding flow end-to-end, not just patch it — starting from user research and ending with a shipped product that measurably improved completion rates.</p>
+</section>
+
+<!-- SECTION: PROBLEM -->
+<section class="cs-section">
+  <div class="section-pill">Problem</div>
+  <h2 class="cs-h2 accent">Increase onboarding completion with less tech/product effort.</h2>
+  <p class="cs-body">Drop-off was happening across 9 distinct points in the flow. The business had been treating each drop-off as an isolated bug. We needed to understand them as a system.</p>
+
+  <div class="impact-row">
+    <div class="impact-item">
+      <div class="impact-num">54%</div>
+      <div class="impact-desc">Users dropped off before completing the application</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">9</div>
+      <div class="impact-desc">Critical drop-off moments identified in the existing flow</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">5 Cr+</div>
+      <div class="impact-desc">Users on the platform impacted by onboarding issues</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: RESEARCH METHODOLOGY -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">How do we go deeper to understand the problem?</h2>
+  <p class="cs-body">To gain a comprehensive understanding, we engaged in user conversations, analysed the current app, and performed the following:</p>
+
+  <div class="methods-row">
+    <div class="method-item">
+      <div class="method-circle">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <span class="method-label">Understand funnel data</span>
+    </div>
+    <div class="method-item">
+      <div class="method-circle">
+        <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.894L15 14"/><rect x="1" y="6" width="14" height="12" rx="2"/></svg>
+      </div>
+      <span class="method-label">Observe session recordings</span>
+    </div>
+    <div class="method-item">
+      <div class="method-circle">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+      </div>
+      <span class="method-label">Talk to different customers</span>
+    </div>
+    <div class="method-item">
+      <div class="method-circle">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+      </div>
+      <span class="method-label">Identify current problems in app</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: FUNNEL DATA -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">Funnel data</h2>
+  <p class="cs-body">With our funnel data we reached to conclusion that:</p>
+
+  <div class="insight-card">
+    <div class="insight-card-label">Insights from funnel</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <h4>Reinvest in the same flows</h4>
+        <p>Users who completed the first step had significantly higher completion rates — the top-of-funnel experience was driving most drop-off.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Document upload was the biggest blocker</h4>
+        <p>Over 40% of drop-offs happened at the KYC document step — users either didn't have documents ready or the upload flow was too complex.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Returning users convert more</h4>
+        <p>Users who had partially completed and returned converted at 2.3x the rate of first-time visitors — suggesting the flow needed better save & resume.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Mobile drop-off higher than desktop</h4>
+        <p>Mobile completion was 34% lower than desktop, pointing to form factor issues specific to the mobile flow design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: USER RESEARCH -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">Know from the users</h2>
+  <p class="cs-body">Customers were divided into two segments:</p>
+  <ul class="cs-list">
+    <li><strong>NMF — New to lending:</strong> Users who had never taken a loan before and were unfamiliar with the process and documentation required.</li>
+    <li><strong>EMF — Existing loan users:</strong> Users who had taken loans before, either with us or another lender, and had a clear mental model of what to expect.</li>
+  </ul>
+
+  <div class="insight-card" style="margin-top:2rem;">
+    <div class="insight-card-label">Insights from session recordings</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <h4>Lack of action</h4>
+        <p>Users <strong>hovered over form fields but hesitated to fill</strong>, indicating information overload or lack of clarity about what was being asked.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Inefficient progress signals</h4>
+        <p>Users interacted repeatedly with the progress bar but couldn't determine how many steps were remaining, causing anxiety and abandonment.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Rapid scrolling</h4>
+        <p><strong>Rapid scrolling patterns</strong> were observed before document upload steps, indicating users were looking for guidance that wasn't there.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Back-navigation confusion</h4>
+        <p>Users frequently tapped back expecting to edit previous inputs, but were taken to the start of the flow instead — causing rage quits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-card" style="margin-top:1.25rem;">
+    <div class="insight-card-label">Insights from customer interviews</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <h4>Trust anxiety</h4>
+        <p>First-time borrowers were <strong>uncomfortable sharing Aadhaar and PAN</strong> without understanding why each document was needed.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Lack of awareness about eligibility</h4>
+        <p>Users didn't know if they'd qualify before going through the full flow — they wanted an eligibility check upfront before submitting documents.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Document unpreparedness</h4>
+        <p>Users often started the flow without their documents at hand, hit a wall, and abandoned. They needed a "get ready" state before the actual flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: CURRENT SCREEN ANALYSIS -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">Current screen analysis</h2>
+  <p class="cs-body">We mapped the existing flow screen by screen, annotating every friction point, inconsistency, and trust-breaking moment we found.</p>
+
+  <!-- Image placeholder for current screen analysis -->
+  <div class="cs-image-full" style="margin-top:1.5rem; min-height:320px;">
+    <div class="img-placeholder">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Current flow annotated screens — coming soon</span>
+    </div>
+  </div>
+
+  <div class="insight-card" style="margin-top:1.5rem;">
+    <div class="insight-card-label">Insights from current flow review</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <h4>Redundancy and inconsistent data</h4>
+        <p>The same information was being asked multiple times across different steps — users had to enter their phone number three times in a single flow.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Overwhelming first fold with low-value content</h4>
+        <p>The first screen showed compliance disclaimers and secondary information that added no value to a user trying to start their application.</p>
+      </div>
+      <div class="insight-item">
+        <h4>No eligibility indicator</h4>
+        <p>Users completed 6+ steps only to find out at the end they weren't eligible — there was no soft eligibility check anywhere in the flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: COMPETITIVE ANALYSIS -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">How are others doing it?</h2>
+  <p class="cs-body">We analysed multiple competitive apps to see how loan onboarding was being handled and to understand current market conventions around trust-building, document collection, and eligibility checks.</p>
+
+  <!-- Image placeholder for competitive analysis -->
+  <div class="cs-image-full" style="margin-top:1.5rem; min-height:280px;">
+    <div class="img-placeholder">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Competitive analysis screens — coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: UX PRIORITIZATION -->
+<section class="cs-section">
+  <div class="section-pill">Research</div>
+  <h2 class="cs-h2">UX prioritization — we can't do it all</h2>
+  <p class="cs-body">As a startup, we're all about moving fast — building quicker, breaking barriers even faster, and shipping like we should've done it yesterday 🚀. With limited engineering bandwidth and a 12-week timeline, we had to be ruthless about what we'd tackle first.</p>
+  <p class="cs-body">We used a prioritization framework — mapping ideas against effort vs. impact — to decide what would go into this sprint vs. the backlog.</p>
+
+  <div class="pyramid-wrap">
+    <svg class="pyramid" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%;">
+      <!-- Pyramid layers -->
+      <polygon points="240,30 440,290 40,290" fill="none" stroke="#333" stroke-width="1.5"/>
+      <!-- Layer lines -->
+      <line x1="107" y1="210" x2="373" y2="210" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="153" y1="150" x2="327" y2="150" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- Layer fills -->
+      <polygon points="240,30 327,150 153,150" fill="rgba(79,196,207,0.08)"/>
+      <polygon points="153,150 327,150 373,210 107,210" fill="rgba(79,196,207,0.05)"/>
+      <polygon points="107,210 373,210 440,290 40,290" fill="rgba(79,196,207,0.03)"/>
+      <!-- Labels inside -->
+      <text x="240" y="105" text-anchor="middle" fill="#0066FF" font-size="11" font-family="Inter,sans-serif" font-weight="500">LOVE</text>
+      <text x="240" y="185" text-anchor="middle" fill="#888" font-size="11" font-family="Inter,sans-serif">DELIGHT</text>
+      <text x="240" y="260" text-anchor="middle" fill="#888" font-size="11" font-family="Inter,sans-serif">VIABLE · FEASIBLE · USABLE</text>
+      <!-- Side labels -->
+      <text x="35" y="215" text-anchor="end" fill="#555" font-size="10" font-family="Inter,sans-serif">BASELINE</text>
+      <text x="452" y="215" text-anchor="start" fill="#555" font-size="10" font-family="Inter,sans-serif">ALL STAKEHOLDERS</text>
+      <text x="35" y="160" text-anchor="end" fill="#555" font-size="10" font-family="Inter,sans-serif">GREATER</text>
+      <text x="35" y="172" text-anchor="end" fill="#555" font-size="10" font-family="Inter,sans-serif">HEIGHTS</text>
+      <text x="452" y="160" text-anchor="start" fill="#555" font-size="10" font-family="Inter,sans-serif">SMALL TEAM</text>
+      <!-- Y axis arrow -->
+      <line x1="20" y1="290" x2="20" y2="40" stroke="#444" stroke-width="1.5"/>
+      <polyline points="16,50 20,38 24,50" fill="#444"/>
+      <!-- Dot on pyramid (START) -->
+      <circle cx="240" cy="290" r="5" fill="#0066FF" opacity="0.7"/>
+      <text x="240" y="310" text-anchor="middle" fill="#555" font-size="10" font-family="Inter,sans-serif">START</text>
+    </svg>
+  </div>
+</section>
+
+<!-- SECTION: DEFINE — HMW QUESTIONS -->
+<section class="cs-section">
+  <div class="section-pill">Define</div>
+  <h2 class="cs-h2">Synthesising research into opportunities</h2>
+  <p class="cs-body">After mapping all our research findings, we reframed the problems as "How Might We" questions — turning friction points into design opportunities the team could rally around.</p>
+
+  <div class="hmw-grid">
+    <div class="hmw-card">...make users feel confident about sharing sensitive documents before they start filling the form?</div>
+    <div class="hmw-card">...let users know their eligibility before they invest time in a 10-step flow?</div>
+    <div class="hmw-card">...reduce cognitive load on each screen so users don't feel overwhelmed mid-flow?</div>
+    <div class="hmw-card">...let users save progress and return without losing their data or starting over?</div>
+    <div class="hmw-card">...make the number of remaining steps feel manageable, not intimidating?</div>
+    <div class="hmw-card">...redesign document upload so users know exactly what to prepare before they begin?</div>
+  </div>
+</section>
+
+<!-- SECTION: DEFINE — DESIGN PRINCIPLES -->
+<section class="cs-section">
+  <div class="section-pill">Define</div>
+  <h2 class="cs-h2">Design principles we committed to</h2>
+  <p class="cs-body">Before any wireframe was drawn, we aligned the team on three non-negotiable principles that would guide every decision in the redesign.</p>
+
+  <div class="principles-row">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Trust before ask</div>
+      <div class="principle-desc">Every screen that asks for sensitive data must first explain why it's needed, what it's used for, and how it's protected.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Show the end from the start</div>
+      <div class="principle-desc">Users should always know how many steps remain, what they'll need to complete, and what happens after they're done.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <div class="principle-title">One thing at a time</div>
+      <div class="principle-desc">Each screen asks for exactly one piece of information. No multi-field forms. No scrolling required to find the CTA.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: IDEATION — FLOW REDESIGN -->
+<section class="cs-section">
+  <div class="section-pill">Ideation</div>
+  <h2 class="cs-h2">Redesigning the flow from scratch</h2>
+  <p class="cs-body">We scrapped the existing flow entirely and rebuilt from first principles. The new flow introduces a soft eligibility check upfront, a document checklist before data entry begins, and a persistent progress indicator throughout.</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-num">01</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">New</span>
+        <h4>Soft eligibility check</h4>
+        <p>A 3-question pre-qualification screen (age, income, employment type) before any personal data is collected. Users know in 30 seconds if they're likely eligible.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">02</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">New</span>
+        <h4>Document checklist screen</h4>
+        <p>A dedicated "Get ready" screen listing every document needed, before any form fields appear. Users can bookmark and return when prepared.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">03</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">Redesigned</span>
+        <h4>One question per screen</h4>
+        <p>Every data-entry step is a single field with a visible label, clear input hint, and an explanation of why it's needed — especially for PAN and Aadhaar.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">04</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">Redesigned</span>
+        <h4>Persistent numbered progress bar</h4>
+        <p>A step indicator showing "Step 4 of 8" replaces the ambiguous progress bar. Users can tap completed steps to edit without losing downstream data.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">05</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">New</span>
+        <h4>Save & resume state</h4>
+        <p>Progress is saved after each step. Returning users land on a "Welcome back" screen that picks up exactly where they left off with a summary of what's done.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">06</div>
+      <div class="flow-step-content">
+        <span class="flow-step-tag">Redesigned</span>
+        <h4>Review & submit screen</h4>
+        <p>A final consolidated summary before submission — all entered data visible at once, with inline edit links. No surprises at the end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: DESIGN — WIREFRAMES -->
+<section class="cs-section">
+  <div class="section-pill">Design</div>
+  <h2 class="cs-h2">Wireframes & early explorations</h2>
+  <p class="cs-body">We moved quickly from flow diagrams to low-fidelity wireframes, testing early concepts with 6 users before committing to high-fidelity screens. Two rounds of iteration before final designs.</p>
+
+  <div class="cs-image-full" style="margin-top:1.5rem; min-height:300px;">
+    <div class="img-placeholder">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Wireframes — drop your screens here</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: DESIGN — BEFORE / AFTER -->
+<section class="cs-section">
+  <div class="section-pill">Design</div>
+  <h2 class="cs-h2">Before vs. after</h2>
+  <p class="cs-body">The most significant changes weren't visual — they were structural. Here's how the key problem areas changed.</p>
+
+  <div class="before-after">
+    <div class="ba-col">
+      <span class="ba-label before">Before</span>
+      <div class="ba-item"><strong>No eligibility signal</strong> — users completed 6+ steps before learning they didn't qualify.</div>
+      <div class="ba-item"><strong>Document surprise</strong> — PAN and Aadhaar asked mid-flow with no prior warning.</div>
+      <div class="ba-item"><strong>Ambiguous progress</strong> — a fill bar with no step count, no completion estimate.</div>
+      <div class="ba-item"><strong>No save state</strong> — leaving the app at any point meant starting from scratch.</div>
+      <div class="ba-item"><strong>Redundant data entry</strong> — phone number asked 3 times across 3 different screens.</div>
+    </div>
+    <div class="ba-col">
+      <span class="ba-label after">After</span>
+      <div class="ba-item"><strong>30-second soft check</strong> — eligibility confirmed before any personal data is shared.</div>
+      <div class="ba-item"><strong>Document checklist upfront</strong> — users know exactly what to prepare before they start.</div>
+      <div class="ba-item"><strong>Numbered steps</strong> — "Step 4 of 8" with back-navigation that preserves entered data.</div>
+      <div class="ba-item"><strong>Persistent save & resume</strong> — returning users pick up exactly where they left off.</div>
+      <div class="ba-item"><strong>Single-source data</strong> — information entered once, auto-filled wherever reused.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: DESIGN — FINAL SCREENS -->
+<section class="cs-section">
+  <div class="section-pill">Design</div>
+  <h2 class="cs-h2">Final designs</h2>
+  <p class="cs-body">High-fidelity screens across the full redesigned flow — eligibility check, document checklist, data entry steps, and the review & submit screen.</p>
+
+  <div class="cs-image-full" style="margin-top:1.5rem; min-height:400px;">
+    <div class="img-placeholder">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Final screens — drop your designs here</span>
+    </div>
+  </div>
+
+  <div class="cs-image-full" style="margin-top:1.25rem; min-height:300px;">
+    <div class="img-placeholder">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Edge cases & error states — drop your screens here</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: OUTCOME -->
+<section class="cs-section">
+  <div class="section-pill">Outcome</div>
+  <h2 class="cs-h2">What shipped and what moved</h2>
+  <p class="cs-body">The redesigned flow went live in Q3. We measured against a 4-week pre-launch baseline across the same user cohort. Results were statistically significant at 95% confidence within 3 weeks of launch.</p>
+
+  <div class="outcome-grid">
+    <div class="outcome-card">
+      <div class="outcome-num">+54%</div>
+      <span class="outcome-delta">↑ vs. baseline</span>
+      <div class="outcome-desc">Overall onboarding completion rate across both NMF and EMF user segments</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">−62%</div>
+      <span class="outcome-delta" style="color:var(--red);">↓ drop-off</span>
+      <div class="outcome-desc">Drop-off at the document upload step — the single biggest friction point pre-redesign</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">+38%</div>
+      <span class="outcome-delta">↑ vs. baseline</span>
+      <div class="outcome-desc">Returning user completion rate after introducing save & resume functionality</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">−28%</div>
+      <span class="outcome-delta" style="color:var(--red);">↓ support tickets</span>
+      <div class="outcome-desc">Reduction in "how do I complete my application" support queries in the 4 weeks post-launch</div>
+    </div>
+  </div>
+
+  <div class="insight-card" style="margin-top:2rem;">
+    <div class="insight-card-label">What didn't make it into V1</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <h4>AI-assisted document scanning</h4>
+        <p>Auto-fill of PAN and Aadhaar fields from a camera capture. Deprioritised due to OCR accuracy concerns — moved to roadmap for Q2 next year.</p>
+      </div>
+      <div class="insight-item">
+        <h4>Co-applicant flow</h4>
+        <p>The ability to add a co-applicant mid-flow for joint loan applications. Data showed <4% of users needed this — backlogged post-MVP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: LEARNINGS -->
+<section class="cs-section">
+  <div class="section-pill">Learnings</div>
+  <h2 class="cs-h2">What I took away from this</h2>
+  <p class="cs-body">This project pushed me to think beyond UI patterns and into the psychology of financial anxiety. A few things I'd carry into every lending or fintech project going forward:</p>
+
+  <div class="learnings-list">
+    <div class="learning-item">
+      <div class="learning-marker">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="learning-text">
+        <h4>Trust is a UX problem, not a brand problem</h4>
+        <p>Users didn't distrust the brand — they distrusted the flow. A single sentence explaining why Aadhaar was needed reduced hesitation more than any visual redesign. Context is the feature.</p>
+      </div>
+    </div>
+    <div class="learning-item">
+      <div class="learning-marker">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="learning-text">
+        <h4>Soft checks protect both sides</h4>
+        <p>The eligibility pre-check wasn't just a UX win — it reduced incomplete applications in the backend by 31%, which was a direct ops cost saving the team hadn't anticipated.</p>
+      </div>
+    </div>
+    <div class="learning-item">
+      <div class="learning-marker">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="learning-text">
+        <h4>Returning users are your highest-intent segment</h4>
+        <p>The save & resume feature had outsized impact because returning users were already motivated — they just needed the friction removed. Never write off abandonment as disinterest.</p>
+      </div>
+    </div>
+    <div class="learning-item">
+      <div class="learning-marker">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="learning-text">
+        <h4>Shipping fast doesn't mean skipping research</h4>
+        <p>The 3-week research phase felt like a lot in a startup context. But the 4 features we deprioritised based on data saved at least 6 weeks of engineering time that would've been wasted on low-impact work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV FOOTER -->
+<div class="cs-nav-footer">
+  <a class="cs-nav-btn" href="index.html">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to portfolio
+  </a>
+  <a class="cs-nav-btn" href="case-study-01.html">
+    Case study 01
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=(total>0?(scrolled/total)*100:0)+'%';
+});
+</script>
+<script>
+
+// ── THEME TOGGLE ──
+function setThemeUI(theme) {
+  const icon = document.getElementById('toggle-icon');
+  const label = document.getElementById('toggle-label');
+  if (!icon || !label) return;
+  if (theme === 'dark') { icon.textContent = '🌙'; label.textContent = 'Dark'; }
+  else { icon.textContent = '☀️'; label.textContent = 'Light'; }
+}
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  setThemeUI(next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    const saved = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', function() { setThemeUI(saved); });
+  } catch(e) {}
+})();
+function dismissBanner() {
+  const bar = document.getElementById('announce-bar');
+  if (bar) bar.classList.add('hidden');
+  try { sessionStorage.setItem('banner-dismissed', '1'); } catch(e) {}
+}
+(function() {
+  try {
+    if (sessionStorage.getItem('banner-dismissed') === '1') {
+      const bar = document.getElementById('announce-bar');
+      if (bar) bar.classList.add('hidden');
+    }
+  } catch(e) {}
+})();
+
+</script>
+</body>
+</html>
